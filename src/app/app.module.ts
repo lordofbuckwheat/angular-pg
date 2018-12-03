@@ -8,6 +8,8 @@ import { DndComponent } from './dnd/dnd.component';
 import { TestComponent } from './test/test.component';
 import { DndStrictComponent } from './dnd-strict/dnd-strict.component';
 import { ComponentCreationComponent } from './component-creation/component-creation.component';
+import { TemplateInjectionComponent } from './template-injection/template-injection.component';
+import { TemplateInjectionInnerComponent } from './template-injection-inner/template-injection-inner.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { ComponentCreationComponent } from './component-creation/component-creat
     TestComponent,
     DndStrictComponent,
     ComponentCreationComponent,
+    TemplateInjectionComponent,
+    TemplateInjectionInnerComponent,
   ],
   imports: [
     BrowserModule,
