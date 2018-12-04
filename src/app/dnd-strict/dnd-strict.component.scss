@@ -1,0 +1,116 @@
+.target:hover /deep/ .resizable {
+  display: block;
+}
+
+:host /deep/ .resizable {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  pointer-events: none;
+  display: none;
+  &_active {
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: rgba(255,255,255,0.2);
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      z-index: 1;
+    }
+  }
+  &__handle {
+    pointer-events: auto;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background-color: white;
+    }
+    &_tl {
+      top: 0;
+      left: 0;
+      cursor: nwse-resize;
+      &::before {
+        top: 0;
+        left: 0;
+      }
+    }
+    &_t {
+      top: 0;
+      left: 50%;
+      margin-left: -5px;
+      cursor: ns-resize;
+      &::before {
+        top: 0;
+        left: 3px;
+      }
+    }
+    &_tr {
+      top: 0;
+      right: 0;
+      cursor: nesw-resize;
+      &::before {
+        top: 0;
+        right: 0;
+      }
+    }
+    &_r {
+      right: 0;
+      top: 50%;
+      margin-top: -5px;
+      cursor: ew-resize;
+      &::before {
+        right: 0;
+        top: 3px;
+      }
+    }
+    &_br {
+      bottom: 0;
+      right: 0;
+      cursor: nwse-resize;
+      &::before {
+        bottom: 0;
+        right: 0;
+      }
+    }
+    &_b {
+      bottom: 0;
+      left: 50%;
+      margin-left: -5px;
+      cursor: ns-resize;
+      &::before {
+        bottom: 0;
+        left: 3px;
+      }
+    }
+    &_bl {
+      bottom: 0;
+      left: 0;
+      cursor: nesw-resize;
+      &::before {
+        bottom: 0;
+        left: 0;
+      }
+    }
+    &_l {
+      left: 0;
+      top: 50%;
+      margin-top: -5px;
+      cursor: ew-resize;
+      &::before {
+        left: 0;
+        top: 3px;
+      }
+    }
+  }
+}

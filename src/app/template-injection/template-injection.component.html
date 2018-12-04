@@ -1,0 +1,12 @@
+<p>ng-template:</p>
+<ng-template #template let-x="x" let-y="y">
+  <p>x: {{x}}<br>y: {{y}}</p>
+</ng-template>
+<p>one object:</p>
+<ng-template #vc></ng-template>
+<p>multiple objects:</p>
+<template-injection-inner [items]="items">
+  <ng-template let-item>
+    <p>x: {{item.x}}<br>y: {{item.y}}</p>
+  </ng-template>
+</template-injection-inner>
