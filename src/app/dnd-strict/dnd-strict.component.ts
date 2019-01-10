@@ -113,7 +113,7 @@ function Movable($target, $area, deadZone, $handle) {
   }
 }
 
-function Resizable(target, minWidth, minHeight) {
+function Resizable(target, minWidth, minHeight, handleWidth) {
   Events.call(this);
   const $doc = $(document);
   const $target = target.getEl();
@@ -211,6 +211,8 @@ function Resizable(target, minWidth, minHeight) {
   $handle.clone(true).addClass('resizable__handle_b').data('directions', ['bottom']).appendTo($resizable);
   $handle.clone(true).addClass('resizable__handle_bl').data('directions', ['bottom', 'left']).appendTo($resizable);
   $handle.clone(true).addClass('resizable__handle_l').data('directions', [null, 'left']).appendTo($resizable);
+
+  if (handleWidth) $resizable.children('div').css({width:handleWidth})
 }
 
 @Component({
