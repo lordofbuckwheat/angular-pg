@@ -113,10 +113,7 @@ function Movable($target, $area, deadZone, $handle) {
   }
 }
 
-function Resizable(target, minWidth, minHeight, cellSide) {
-  const MIN_CELL_SIDE = 4;
-  const _cellSide =  cellSide ||  MIN_CELL_SIDE;
-
+function Resizable(target, minWidth, minHeight, handleWidth) {
   Events.call(this);
   const $doc = $(document);
   const $target = target.getEl();
@@ -206,14 +203,16 @@ function Resizable(target, minWidth, minHeight, cellSide) {
       }
     });
   });
-  $handle.clone(true).addClass('resizable__handle_tl').data('directions', ['top', 'left']).appendTo($resizable).css({width: Math.floor( _cellSide/4)+'.px'});
-  $handle.clone(true).addClass('resizable__handle_t').data('directions', ['top']).appendTo($resizable).css({width: Math.floor( _cellSide/4)+'.px'});
-  $handle.clone(true).addClass('resizable__handle_tr').data('directions', ['top', 'right']).appendTo($resizable).css({width: Math.floor( _cellSide/4)+'.px'});
-  $handle.clone(true).addClass('resizable__handle_r').data('directions', [null, 'right']).appendTo($resizable).css({width: Math.floor( _cellSide/4)+'.px'});
-  $handle.clone(true).addClass('resizable__handle_br').data('directions', ['bottom', 'right']).appendTo($resizable).css({width: Math.floor( _cellSide/4)+'.px'});
-  $handle.clone(true).addClass('resizable__handle_b').data('directions', ['bottom']).appendTo($resizable).css({width: Math.floor( _cellSide/4)+'.px'});
-  $handle.clone(true).addClass('resizable__handle_bl').data('directions', ['bottom', 'left']).appendTo($resizable).css({width: Math.floor( _cellSide/4)+'.px'});
-  $handle.clone(true).addClass('resizable__handle_l').data('directions', [null, 'left']).appendTo($resizable).css({width: Math.floor( _cellSide/4)+'.px'});
+  $handle.clone(true).addClass('resizable__handle_tl').data('directions', ['top', 'left']).appendTo($resizable);
+  $handle.clone(true).addClass('resizable__handle_t').data('directions', ['top']).appendTo($resizable);
+  $handle.clone(true).addClass('resizable__handle_tr').data('directions', ['top', 'right']).appendTo($resizable);
+  $handle.clone(true).addClass('resizable__handle_r').data('directions', [null, 'right']).appendTo($resizable);
+  $handle.clone(true).addClass('resizable__handle_br').data('directions', ['bottom', 'right']).appendTo($resizable);
+  $handle.clone(true).addClass('resizable__handle_b').data('directions', ['bottom']).appendTo($resizable);
+  $handle.clone(true).addClass('resizable__handle_bl').data('directions', ['bottom', 'left']).appendTo($resizable);
+  $handle.clone(true).addClass('resizable__handle_l').data('directions', [null, 'left']).appendTo($resizable);
+
+  if (handleWidth) $resizable.children('div').css({width:handleWidth})
 }
 
 @Component({

@@ -25,8 +25,8 @@
   }
   &__handle {
     pointer-events: auto;
-    width: 4px;
-    height: 4px;
+    width: 10px;
+    height: 10px;
     position: absolute;
     &::before {
       content: '';
