@@ -212,8 +212,21 @@ function Resizable(target, minWidth, minHeight, handleWidth) {
   $handle.clone(true).addClass('resizable__handle_bl').data('directions', ['bottom', 'left']).appendTo($resizable);
   $handle.clone(true).addClass('resizable__handle_l').data('directions', [null, 'left']).appendTo($resizable);
 
-  if (handleWidth) $resizable.children('div').css({width:handleWidth})
+  if (handleWidth) {
+    $resizable.children('div').css({
+        width: handleWidth,
+        height: handleWidth,
+        margin: 0
+    });
+    $resizable.find('.resizable__handle_l').css({ transform: 'translateY(-50%)' });
+    $resizable.find('.resizable__handle_r').css({ transform: 'translateY(-50%)' });
+    $resizable.find('.resizable__handle_r').css({ transform: 'translateY(-50%)' });
+    $resizable.find('.resizable__handle_t').css({ transform: 'translateX(-50%)' });
+    $resizable.find('.resizable__handle_b').css({ transform: 'translateX(-50%)' });
 }
+
+}
+
 
 @Component({
   selector: 'dnd-strict',
