@@ -113,7 +113,7 @@ function Movable($target, $area, deadZone, $handle) {
   }
 }
 
-function Resizable(target, minWidth, minHeight, handleWidth) {
+function Resizable(target, minWidth, minHeight, handleWidth = null) {
   Events.call(this);
   const $doc = $(document);
   const $target = target.getEl();
@@ -243,7 +243,7 @@ export class DndStrictComponent implements AfterViewInit {
     movable.on('end', () => {
       console.log('end');
     });
-    const resizable = new Resizable(movable, 50, 50);
+    const resizable = new Resizable(movable, 50, 50, '50px');
     resizable.on('start', () => {
       console.log('resize start');
     });
